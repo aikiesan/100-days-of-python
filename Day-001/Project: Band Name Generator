@@ -1,1 +1,6 @@
-Day 1: Working with variables
+print("Hello! This is the Band Name Generator")
+print("Welcome to the use of this great application")
+city_name = input(" For starters, what is the name of the city you grew up in?\n ")
+petname = input(" What is your pet's name?\n ")
+favorite_word = input(" What would you say it's your favorite word?\n ")
+print("Your band name could be" + city_name + petname + favorite_word)
