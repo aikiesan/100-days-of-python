@@ -16,9 +16,3 @@ A simple command-line application that generates band names by combining the use
 - Collects user's pet's name
 - Combines inputs to generate a unique band name
 - Clean user interface with clear instructions
-
-## How to Run
-1. Clone this repository
-2. Navigate to the Day-001 directory
-3. Run `python main.py`
-4. Follow the prompts to generate your band name
