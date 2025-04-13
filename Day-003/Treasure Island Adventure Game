@@ -1,0 +1,105 @@
+"""
+Treasure Island Adventure Game
+Day 3 of 100 Days of Code Challenge
+"""
+
+def display_intro():
+    """Display the game introduction and ASCII art."""
+    print(r'''
+    *******************************************************************************
+              |                   |                  |                     |
+     _________|________________.=""_;=.______________|_____________________|_______
+    |                   |  ,-"_,=""     `"=.|                  |
+    |___________________|__"=._o`"-._        `"=.______________|___________________
+              |                `"=._o`"=._      _`"=._                     |
+     _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+    |                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+    |___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+              |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+     _________|___________| ;`-.o`"=._; ." ` '`."\ ` . "-._ /_______________|_______
+    |                   | |o ;    `"-.o`"=._``  '` " ,__.--o;   |
+    |___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+    ____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+    /______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+    ____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+    /______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+    ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+    /______/______/______/______/______/______/______/______/______/______/_____ /
+    *******************************************************************************
+    ''')
+    print("Welcome to Treasure Island.")
+    print("Your mission is to find the treasure.")
+
+
+def game_over(message):
+    """End the game with the specified message."""
+    print(f"\n{message} Game Over.")
+    exit()
+
+
+def get_valid_choice(prompt, valid_options):
+    """Get a valid choice from the user."""
+    while True:
+        choice = input(prompt).lower()
+        if choice in valid_options:
+            return choice
+        else:
+            print(f"I don't understand. Please type {' or '.join(valid_options)} to continue.")
+
+
+def main():
+    """Run the main game loop."""
+    display_intro()
+    
+    # First choice - crossroad
+    choice = get_valid_choice(
+        "\nYou're at a crossroad. Where do you want to go? Type 'left' or 'right':\n",
+        ["left", "right"]
+    )
+    
+    if choice == "right":
+        game_over("You fell into a hidden hole. The fall was too great.")
+    
+    print("\nYou find a path that leads to a mysterious lake. The water shimmers in the sunlight.")
+    
+    # Second choice - lake
+    choice = get_valid_choice(
+        "\nYou arrive at the lake. There might be something on the other side. Do you want to 'swim' across or 'wait' for a boat?\n",
+        ["swim", "wait"]
+    )
+    
+    if choice == "swim":
+        game_over("As you swim, you're attacked by an angry trout.")
+    
+    print("\nAfter waiting patiently, an old wooden boat appears. You use it to cross safely to the other shore.")
+    
+    # Third choice - doors
+    print("\nYou reach an island with a mysterious castle. There are three doors before you:")
+    print("- A Red door with ancient fire symbols carved into it")
+    print("- A Blue door with strange oceanic patterns")
+    print("- A Yellow door adorned with golden leaves")
+    
+    choice = get_valid_choice(
+        "Which door do you choose to open? Type 'red', 'blue', or 'yellow':\n",
+        ["red", "blue", "yellow"]
+    )
+    
+    if choice == "red":
+        game_over("As you open the door, a blast of fire engulfs you. You are burned by fire.")
+    elif choice == "blue":
+        game_over("You open the door and step into darkness. Suddenly, you hear growling. You are eaten by beasts.")
+    
+    # Win condition
+    print("\n*********************************************")
+    print("* The door creaks open to reveal a room     *")
+    print("* filled with golden treasures! The legends *")
+    print("* were true! YOU FOUND THE TREASURE!        *")
+    print("*                                           *")
+    print("*              YOU WIN!                     *")
+    print("*********************************************")
+    
+    print("\nThanks for playing Treasure Island!")
+
+
+if __name__ == "__main__":
+    main()
